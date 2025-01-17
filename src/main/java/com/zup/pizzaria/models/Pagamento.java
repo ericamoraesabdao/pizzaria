@@ -1,6 +1,7 @@
 package com.zup.pizzaria.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -11,11 +12,15 @@ public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull @Positive
+    @NotEmpty
+    @NotNull
+    @Positive
     private double valorPago;
     @NotNull
+    @NotEmpty
     private Long pedidoId;
     @NotNull
+    @NotEmpty
     private Date dataHoraPagamento;
     @Enumerated(EnumType.STRING)
     @NotNull
