@@ -2,7 +2,6 @@ package com.zup.pizzaria.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 import java.util.Date;
@@ -13,17 +12,14 @@ public class Pagamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    @NotNull
     @Positive
     private double valorPago;
-    @NotNull
     @NotEmpty
     private Long pedidoId;
-    @NotNull
     @NotEmpty
     private Date dataHoraPagamento;
     @Enumerated(EnumType.STRING)
-    @NotNull
+    @NotEmpty
     private FormaPagamento formaPagamento;
 
     public Pagamento(double valorPago, Long pedidoId, Date dataHoraPagamento, FormaPagamento formaPagamento) {
