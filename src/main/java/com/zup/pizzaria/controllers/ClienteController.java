@@ -5,10 +5,9 @@ import com.zup.pizzaria.models.Cliente;
 import com.zup.pizzaria.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
@@ -24,5 +23,11 @@ public class ClienteController {
 
         ClienteDTO clienteDTO = clienteService.criarCliente(cliente);
         return ResponseEntity.ok(clienteDTO);
+    }
+
+    // Endpoint para listar todos os clientes
+    @GetMapping
+    public List<ClienteDTO> listarClientes() {
+        return clienteService.listarClientes();
     }
 }

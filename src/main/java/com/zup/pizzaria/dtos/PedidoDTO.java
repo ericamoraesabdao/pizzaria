@@ -1,16 +1,36 @@
 package com.zup.pizzaria.dtos;
 
 public class PedidoDTO {
+    private Long idPedido;
     private String nomeCliente;
     private String emailCliente;
     private String descricaoPedido;
+    private Long clienteIdPedido;
     private double valorTotalPedido;
 
-    public PedidoDTO(String nomeCliente, String emailCliente, String descricaoPedido, double valorTotalPedido) {
+    public PedidoDTO(Long idPedido, String nomeCliente, String emailCliente, String descricaoPedido, Long clienteIdPedido, double valorTotalPedido) {
+        this.idPedido = idPedido;
         this.nomeCliente = nomeCliente;
         this.emailCliente = emailCliente;
         this.descricaoPedido = descricaoPedido;
+        this.clienteIdPedido = clienteIdPedido;
         this.valorTotalPedido = valorTotalPedido;
+    }
+
+    public Long getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(Long idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public Long getClienteIdPedido() {
+        return clienteIdPedido;
+    }
+
+    public void setClienteIdPedido(Long clienteIdPedido) {
+        this.clienteIdPedido = clienteIdPedido;
     }
 
     public String getNomeCliente() {

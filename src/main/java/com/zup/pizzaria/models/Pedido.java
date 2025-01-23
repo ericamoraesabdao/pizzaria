@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
@@ -14,13 +15,17 @@ public class Pedido {
     private Long id;
     @NotEmpty
     private String descricao;
-    @NotEmpty
+    @NotNull
     private Long clienteId;
-    @NotEmpty
     @Positive
     private double valorTotal;
 
-    public Pedido(Long clienteId, String descricao, double valorTotal) {
+    public Pedido (){
+
+    }
+
+    public Pedido(Long id, Long clienteId, String descricao, double valorTotal) {
+        this.id = id;
         this.clienteId = clienteId;
         this.descricao = descricao;
         this.valorTotal = valorTotal;
